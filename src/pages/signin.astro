@@ -14,19 +14,21 @@ const error = url.searchParams.get("error");
 ---
 
 <BaseLayout title="Sign in">
-  <h1>Sign in</h1>
-  <p>New here? <a href="/register">Create an account</a></p>
-  {error && (
-    <div style="color: red; padding: 1rem; border: 1px solid red; margin-bottom: 1rem; border-radius: 4px;">
-      <strong>Error:</strong> {error}
-    </div>
-  )}
-  <form action="/api/auth/signin" method="post">
-    <label for="email">Email</label>
-    <input type="email" name="email" id="email" />
-    <label for="password">Password</label>
-    <input type="password" name="password" id="password" />
-    <button type="submit">Login</button>
-    <button value="github" name="provider" type="submit">Sign in with GitHub</button>
-  </form>
+  <div class="wrapper">
+    <h1>Sign in</h1>
+    <p>New here? <a href="/register">Create an account</a></p>
+    {error && (
+      <div style="color: red; padding: 1rem; border: 1px solid red; margin-bottom: 1rem; border-radius: 4px;">
+        <strong>Error:</strong> {error}
+      </div>
+    )}
+    <form action="/api/auth/signin" method="post">
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" />
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" />
+      <button type="submit">Login</button>
+      <button value="github" name="provider" type="submit">Sign in with GitHub</button>
+    </form>
+  </div>
 </BaseLayout>
