@@ -23,6 +23,15 @@ const { title, summary, socialImage, allowRobots } = Astro.props;
       socialImage={socialImage}
     /> -->
     {allowRobots === false && <meta name="robots" content="noindex, nofollow" />}
+
+    <script
+      src="https://unpkg.com/@elenajs/components@1.0.0/dist/bundle.js"
+      type="module"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@elenajs/components@1.0.0/dist/bundle.css"
+    />
   </head>
   <body>
     <Header />

@@ -4,13 +4,13 @@
 
     "brand": {
       "primary": {
-        "$value": "#3358D4"
+        "$value": "#3E63DD"
       },
       "dark": {
         "$value": "#171406"
       },
       "light": {
-        "$value": "#ffffff"
+        "$value": "{color.stone.100}"
       }
     },
 

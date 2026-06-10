@@ -12,7 +12,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^6.3.3"
+    "@supabase/supabase-js": "^2.108.0",
+    "astro": "^6.4.5"
   },
   "devDependencies": {
     "@sugarcube-sh/cli": "^0.1.12",
