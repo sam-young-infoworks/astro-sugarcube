@@ -1,0 +1,16 @@
+---
+import { auth } from "../lib/auth";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+export const prerender = false; // Not needed in 'server' mode
+
+const session = await auth.api.getSession({
+  headers: Astro.request.headers,
+});
+---
+
+<BaseLayout user={session?.user}>
+  <div class="wrapper">
+    <p>{session?.user?.name}</p>
+  </div>
+</BaseLayout>

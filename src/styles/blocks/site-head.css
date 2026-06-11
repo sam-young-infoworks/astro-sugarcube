@@ -16,19 +16,18 @@
   container-name: site-head-brand;
   flex-basis: clamp(25ch, 60%, 50rem);
   flex-grow: 1;
+  font-weight: 900;
 }
 
 .site-head__brand a:not(:hover) {
   text-decoration: none;
 }
 
+.site-head__inner {
+  align-items: center;
+}
+
 .site-head hr {
   --flow-space: var(--space-md);
   --hr-stroke: var(--stroke-width) solid var(--color-brand-primary);
-}
-
-@container site-head-brand (68vi <= width <= 50rem) {
-  .site-head__brand a {
-    color: var(--color-foreground-inverse);
-  }
 }

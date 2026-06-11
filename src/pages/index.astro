@@ -1,11 +1,39 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import BaseLayout from '../layouts/BaseLayout.astro';
+import { auth } from "../lib/auth";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Masthead from '../components/masthead/Masthead.astro';
+import Hero from '../components/hero/Hero.astro';
+import Closer from '../components/closer/Closer.astro';
+
+export const prerender = false; // Not needed in 'server' mode
+
+const session = await auth.api.getSession({
+  headers: Astro.request.headers,
+});
 ---
 
-<BaseLayout>
-	<Welcome />
+<BaseLayout user={session?.user}>
+	<div class="wrapper">
+
+		<p>{session?.user?.name}</p>
+	</div>
+
+	<div class="region flow">
+		<div class="wrapper">
+			<Masthead />
+		</div>
+		<Hero />
+	</div>
+	
+	<div class="region wrapper" id="content">
+		<div class="prose">
+			<h1>Astro Starter!</h1>
+			<p>This is some content here</p>
+			<button class="button">Test</button>
+			<button class="button" data-button-variant="secondary">Test</button>
+		</div>
+	</div>
+	
+	<Closer />
 </BaseLayout>

@@ -2,11 +2,12 @@
 const data = {
   brandName: 'Bloom',
   items: [
-    { label: 'Home', href: '/', current: true },
-    { label: 'About', href: '/about' },
-    { label: 'Contact', href: '/contact' },
+    { label: 'About', href: '/about', current: true },
+    { label: 'Dashboard', href: '/dashboard' },
   ],
 };
+
+const { user } = Astro.props;
 ---
 
 <header class="site-head">
@@ -24,9 +25,33 @@ const data = {
             <a href={item.href} {...(item.current ? {'aria-current': 'page'} : {})}>{item.label}</a>
           </li>
         ))}
+        <li>
+          {user ? <button id="logout">Logout</button> : <button id="login">Login</button>}
+        </li>
         </ul>
       </nav>
     </div>
     <hr/>
   </div>
 </header>
+
+<script>
+	const { signIn, signOut } = await import("../../lib/auth-client")
+
+	const loginBtn = document.querySelector("#login");
+	const logoutBtn = document.querySelector("#logout");
+	
+	if (loginBtn) {
+		loginBtn.onclick = () => signIn.social({
+			provider: "github",
+			callbackURL: "/dashboard",
+		})
+	}
+	
+	if (logoutBtn) {
+		logoutBtn.onclick = async () => {
+			await signOut();
+			window.location.href = "/";
+		}
+	}
+</script>

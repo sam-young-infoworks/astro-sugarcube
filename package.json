@@ -12,10 +12,13 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^6.3.3"
+    "astro": "^6.3.3",
+    "better-auth": "^1.6.16",
+    "better-sqlite3": "^12.10.0"
   },
   "devDependencies": {
     "@sugarcube-sh/cli": "^0.1.12",
-    "@sugarcube-sh/vite": "^0.1.13"
+    "@sugarcube-sh/vite": "^0.1.13",
+    "@types/better-sqlite3": "^7.6.13"
   }
 }
