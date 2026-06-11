@@ -34,9 +34,10 @@ try {
   return Astro.redirect("/signin");
 }
 
+const user = session.data.user;
 const email = session.data.user?.email;
 ---
-<BaseLayout title="dashboard">
+<BaseLayout title="dashboard" user={user}>
   <div class="wrapper">
     <h1>Welcome {email}</h1>
     <p>We are happy to see you here</p>

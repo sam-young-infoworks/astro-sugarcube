@@ -7,6 +7,8 @@ const data = {
     { label: 'Contact', href: '/contact' },
   ],
 };
+
+const { user } = Astro.props;
 ---
 
 <header class="site-head">
@@ -24,6 +26,7 @@ const data = {
             <a href={item.href} {...(item.current ? {'aria-current': 'page'} : {})}>{item.label}</a>
           </li>
         ))}
+          {user?.email ? <li><a href="logout">logout</a></li> : <li><a href="/signin">sign in</a></li>} 
         </ul>
       </nav>
     </div>
