@@ -12,7 +12,7 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^6.4.8"
+    "astro": "^7.3.2"
   },
   "devDependencies": {
     "@sugarcube-sh/cli": "^0.1.12",
